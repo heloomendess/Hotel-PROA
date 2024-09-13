@@ -1,11 +1,10 @@
 package Hotel
 
-import kotlin.system.exitProcess
-
 fun cadastrarHospedes() {
     val listaHospedes = mutableListOf(
         "Carlos Villagran", "Maria Antonieta de las Nieves", "Roberto Gómez Bolaños", "Florinda Meza", "Ramón Valdés", "Rubén Aguirre", "Angelines Fernández", "Edgar Vivar", "Horácio Gómez Bolaños", "Raúl Padilla"
     )
+    val diariaPadrao = 100.0 // Valor padrão da diária
 
     while (true) {
         println("""Cadastro de Hóspedes
@@ -17,7 +16,7 @@ fun cadastrarHospedes() {
         val escolha = readln().toIntOrNull()
 
         when (escolha) {
-            1 -> cadastrarHospede(listaHospedes)
+            1 -> cadastrarHospede(listaHospedes, diariaPadrao)
             2 -> pesquisarHospede(listaHospedes)
             3 -> sairCadastro()
             else -> erroCadastroDeHospedes()
@@ -25,7 +24,7 @@ fun cadastrarHospedes() {
     }
 }
 
-fun cadastrarHospede(listaHospedes: MutableList<String>) {
+fun cadastrarHospede(listaHospedes: MutableList<String>, diariaPadrao: Double) {
     println("Cadastro de Hóspedes.\nPor favor, informe o nome da Hóspede:")
     val novoHospede = readln()
     listaHospedes.add(novoHospede)
@@ -48,6 +47,11 @@ fun pesquisarHospede(listaHospedes: MutableList<String>) {
         println("Não encontramos nenhuma hóspede com esse nome.")
     }
 }
+
+fun comoSoletra() {
+
+}
+
 
 fun sairCadastro() {
     println("Você deseja sair? S/N")
